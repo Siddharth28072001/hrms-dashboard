@@ -112,6 +112,15 @@
         "documentation": {}
     },
     {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
         "label": "create_engine",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
@@ -199,15 +208,6 @@
         "importPath": "json",
         "description": "json",
         "detail": "json",
-        "documentation": {}
-    },
-    {
-        "label": "os",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
         "documentation": {}
     },
     {
@@ -1828,7 +1828,7 @@
         "kind": 5,
         "importPath": "backend-fastapi.app.database",
         "description": "backend-fastapi.app.database",
-        "peekOfCode": "DATABASE_URL = \"postgresql://postgres:1234@localhost:5432/hrms\"\nengine = create_engine(DATABASE_URL)\nSessionLocal = sessionmaker(\n    autocommit=False,\n    autoflush=False,\n    bind=engine\n)\nBase = declarative_base()",
+        "peekOfCode": "DATABASE_URL = os.environ.get(\"DATABASE_URL\")  \n# Fallback for local development\nif DATABASE_URL is None:\n    DATABASE_URL = \"postgresql://postgres:1234@localhost:5432/hrms\"\nengine = create_engine(DATABASE_URL)\nSessionLocal = sessionmaker(\n    autocommit=False,\n    autoflush=False,\n    bind=engine\n)",
         "detail": "backend-fastapi.app.database",
         "documentation": {}
     },
