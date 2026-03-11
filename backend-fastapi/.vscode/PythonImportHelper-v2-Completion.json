@@ -1,0 +1,375 @@
+[
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "sessionmaker",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "jsonable_encoder",
+        "importPath": "fastapi.encoders",
+        "description": "fastapi.encoders",
+        "isExtraImport": true,
+        "detail": "fastapi.encoders",
+        "documentation": {}
+    },
+    {
+        "label": "jsonable_encoder",
+        "importPath": "fastapi.encoders",
+        "description": "fastapi.encoders",
+        "isExtraImport": true,
+        "detail": "fastapi.encoders",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "create_engine",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Date",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Boolean",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "CORSMiddleware",
+        "importPath": "fastapi.middleware.cors",
+        "description": "fastapi.middleware.cors",
+        "isExtraImport": true,
+        "detail": "fastapi.middleware.cors",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "kind": 2,
+        "importPath": "app.attendance_router",
+        "description": "app.attendance_router",
+        "peekOfCode": "def get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()\n@router.post(\"/markAttendance\")\ndef markAttendance(attendance: AttendanceCreate, db: Session = Depends(get_db)):\n    try:\n        employee = db.query(Employee).filter(Employee.id == attendance.employee_id, Employee.active == True).first()",
+        "detail": "app.attendance_router",
+        "documentation": {}
+    },
+    {
+        "label": "markAttendance",
+        "kind": 2,
+        "importPath": "app.attendance_router",
+        "description": "app.attendance_router",
+        "peekOfCode": "def markAttendance(attendance: AttendanceCreate, db: Session = Depends(get_db)):\n    try:\n        employee = db.query(Employee).filter(Employee.id == attendance.employee_id, Employee.active == True).first()\n        if not employee:\n            return {\"status\": False, \"message\": \"Employee not found or inactive\", \"data\": None}\n        existing_attendance = db.query(Attendance).filter(\n            Attendance.employee_id == attendance.employee_id,\n            Attendance.date == attendance.date\n        ).first()\n        if existing_attendance:",
+        "detail": "app.attendance_router",
+        "documentation": {}
+    },
+    {
+        "label": "getEmployeeAttendance",
+        "kind": 2,
+        "importPath": "app.attendance_router",
+        "description": "app.attendance_router",
+        "peekOfCode": "def getEmployeeAttendance(id: int, db: Session = Depends(get_db)):\n    try:\n        employee = db.query(Employee).filter(Employee.id == id, Employee.active == True).first()\n        if not employee:\n            return {\"status\": False, \"message\": \"Employee not found or inactive\", \"data\": None}\n        attendance_records = db.query(Attendance).filter(Attendance.employee_id == id).order_by(Attendance.date).all()\n        return {\"status\": True, \"data\": jsonable_encoder(attendance_records)}\n    except Exception as e:\n        return {\"status\": False, \"message\": f\"Server error: {str(e)}\", \"data\": None}",
+        "detail": "app.attendance_router",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "app.attendance_router",
+        "description": "app.attendance_router",
+        "peekOfCode": "router = APIRouter(prefix=\"/attendance\", tags=[\"Attendance\"])\ndef get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()\n@router.post(\"/markAttendance\")\ndef markAttendance(attendance: AttendanceCreate, db: Session = Depends(get_db)):\n    try:",
+        "detail": "app.attendance_router",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASE_URL",
+        "kind": 5,
+        "importPath": "app.database",
+        "description": "app.database",
+        "peekOfCode": "DATABASE_URL = \"postgresql://postgres:1234@localhost:5432/hrms\"\nengine = create_engine(DATABASE_URL)\nSessionLocal = sessionmaker(\n    autocommit=False,\n    autoflush=False,\n    bind=engine\n)\nBase = declarative_base()",
+        "detail": "app.database",
+        "documentation": {}
+    },
+    {
+        "label": "engine",
+        "kind": 5,
+        "importPath": "app.database",
+        "description": "app.database",
+        "peekOfCode": "engine = create_engine(DATABASE_URL)\nSessionLocal = sessionmaker(\n    autocommit=False,\n    autoflush=False,\n    bind=engine\n)\nBase = declarative_base()",
+        "detail": "app.database",
+        "documentation": {}
+    },
+    {
+        "label": "SessionLocal",
+        "kind": 5,
+        "importPath": "app.database",
+        "description": "app.database",
+        "peekOfCode": "SessionLocal = sessionmaker(\n    autocommit=False,\n    autoflush=False,\n    bind=engine\n)\nBase = declarative_base()",
+        "detail": "app.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 5,
+        "importPath": "app.database",
+        "description": "app.database",
+        "peekOfCode": "Base = declarative_base()",
+        "detail": "app.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "kind": 2,
+        "importPath": "app.employee_router",
+        "description": "app.employee_router",
+        "peekOfCode": "def get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()\n@router.post(\"/addEmployee\")\ndef addEmployee(employee: EmployeeCreate, db: Session = Depends(get_db)):\n    try:\n        email_regex = r\"^[\\w\\.-]+@[\\w\\.-]+\\.\\w+$\"",
+        "detail": "app.employee_router",
+        "documentation": {}
+    },
+    {
+        "label": "addEmployee",
+        "kind": 2,
+        "importPath": "app.employee_router",
+        "description": "app.employee_router",
+        "peekOfCode": "def addEmployee(employee: EmployeeCreate, db: Session = Depends(get_db)):\n    try:\n        email_regex = r\"^[\\w\\.-]+@[\\w\\.-]+\\.\\w+$\"\n        if not re.match(email_regex, employee.email):\n            return {\"status\": False, \"message\": \"Invalid email format\", \"data\": None}\n        employee_id_upper = employee.employee_id.upper()\n        existing_emp = (\n            db.query(Employee)\n            .filter(Employee.employee_id == employee_id_upper, Employee.active == True)\n            .first()",
+        "detail": "app.employee_router",
+        "documentation": {}
+    },
+    {
+        "label": "getEmployees",
+        "kind": 2,
+        "importPath": "app.employee_router",
+        "description": "app.employee_router",
+        "peekOfCode": "def getEmployees(db: Session = Depends(get_db)):\n    try:\n        employees = db.query(Employee).filter(Employee.active == True).all()\n        return {\"status\": True, \"data\": jsonable_encoder(employees)}\n    except Exception as e:\n        return {\"status\": False, \"message\": f\"Server error: {str(e)}\", \"data\": None}\n@router.delete(\"/deleteEmployee/{id}\")\ndef deleteEmployee(id: int, db: Session = Depends(get_db)):\n    try:\n        employee = (",
+        "detail": "app.employee_router",
+        "documentation": {}
+    },
+    {
+        "label": "deleteEmployee",
+        "kind": 2,
+        "importPath": "app.employee_router",
+        "description": "app.employee_router",
+        "peekOfCode": "def deleteEmployee(id: int, db: Session = Depends(get_db)):\n    try:\n        employee = (\n            db.query(Employee)\n            .filter(Employee.id == id, Employee.active == True)\n            .first()\n        )\n        if not employee:\n            return {\n                \"status\": False,",
+        "detail": "app.employee_router",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "app.employee_router",
+        "description": "app.employee_router",
+        "peekOfCode": "router = APIRouter(prefix=\"/employees\", tags=[\"Employees\"])\ndef get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()\n@router.post(\"/addEmployee\")\ndef addEmployee(employee: EmployeeCreate, db: Session = Depends(get_db)):\n    try:",
+        "detail": "app.employee_router",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app.main",
+        "description": "app.main",
+        "peekOfCode": "app = FastAPI(title=\"HRMS Lite API\")\nBase.metadata.create_all(bind=engine)\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=[\"*\"],\n    allow_credentials=True,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],\n)\napp.include_router(employee_router)",
+        "detail": "app.main",
+        "documentation": {}
+    },
+    {
+        "label": "Employee",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Employee(Base):\n    __tablename__ = \"employees\"\n    id = Column(Integer, primary_key=True, index=True)\n    employee_id = Column(String, index=True)\n    full_name = Column(String)\n    email = Column(String)\n    department = Column(String)\n    active = Column(Boolean, default=True)\n    attendance = relationship(\"Attendance\", back_populates=\"employee\")\nclass Attendance(Base):",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Attendance",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Attendance(Base):\n    __tablename__ = \"attendance\"\n    id = Column(Integer, primary_key=True, index=True)\n    employee_id = Column(Integer, ForeignKey(\"employees.id\"))\n    date = Column(Date)\n    status = Column(String)\n    employee = relationship(\"Employee\", back_populates=\"attendance\")",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "EmployeeCreate",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class EmployeeCreate(BaseModel):\n    employee_id: str\n    full_name: str\n    email: str\n    department: str\nclass Employee(BaseModel):\n    id: int\n    employee_id: str\n    full_name: str\n    email: str",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "Employee",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class Employee(BaseModel):\n    id: int\n    employee_id: str\n    full_name: str\n    email: str\n    department: str\n    class Config:\n        orm_mode = True\nclass AttendanceCreate(BaseModel):\n    employee_id: int",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "AttendanceCreate",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class AttendanceCreate(BaseModel):\n    employee_id: int\n    date: date\n    status: str\nclass Attendance(BaseModel):\n    id: int\n    employee_id: int\n    date: date\n    status: str\n    class Config:",
+        "detail": "app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "Attendance",
+        "kind": 6,
+        "importPath": "app.schemas",
+        "description": "app.schemas",
+        "peekOfCode": "class Attendance(BaseModel):\n    id: int\n    employee_id: int\n    date: date\n    status: str\n    class Config:\n        orm_mode = True",
+        "detail": "app.schemas",
+        "documentation": {}
+    }
+]
